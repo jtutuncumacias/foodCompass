@@ -23,8 +23,6 @@ var getDirections = function(){
       var lon = (resultLeg.start_location.A + resultLeg.end_location.A) / 2.0
       
       var def = NH.data.getHealthyMarkets(lat, lon);
-      
-      
     }
   });
   
