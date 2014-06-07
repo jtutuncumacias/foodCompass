@@ -17,10 +17,16 @@ var getDirections = function(){
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(result);
-      alert("start location" + result.routes[0].legs[0].start_location);
-      alert("end location" + result.routes[0].legs[0].end_location);
+      
+      var resultLeg = result.routes[0].legs[0];
+      var lat = (resultLeg.start_location.k + resultLeg.end_location.k) / 2.0
+      var lon = (resultLeg.start_location.A + resultLeg.end_location.A) / 2.0
+      
+      var def = NH.data.getHealthyMarkets(lat, lon);
     }
   });
+  
+  
   
 };
 

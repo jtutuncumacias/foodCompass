@@ -12,10 +12,18 @@ NH.data = NH.data || {};
         var thisApiCall = apiUrl;
         thisApiCall += "&lat=" + lat;
         thisApiCall += "&lon=" + lon;
+<<<<<<< HEAD
         return $.ajax({
 
             type: "GET",
             url: apiUrl,
+=======
+
+        return $.ajax({
+
+            type: "GET",
+            url: thisApiCall,
+>>>>>>> FETCH_HEAD
             dataType: "jsonp"
         });
         //return deferred.promise();
