@@ -42,21 +42,39 @@ NH.data = NH.data || {};
 
                 var deferred = $.get(url);
 
-                deferred.then(function(data) {
-                    geocoding.location = data.results[0].geometry.location;
-                    console.log("partytime: " + geocoding.location);
-                    healthyMarkets.push(geocoding);
+                 deferred.then(
+                    (function(geocoding) {
+                        return function (data) {
+                            geocoding.location = data.results[0].geometry.location;
+                            healthyMarkets.push(geocoding);
 
-                     var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
-                     var map = googleMap;
+                             var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
+                             var map = googleMap;
 
-                     var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: map,
-                        animation: google.maps.Animation.DROP,
-                        title: geocoding.address
-                     });
-                });
+                             var information = geocoding.name + ", " + geocoding.address1 + " " + geocoding.phone;
+
+
+                              var infowindow = new google.maps.InfoWindow({
+                                  content: information
+                              });
+
+
+                             var marker = new google.maps.Marker({
+                                position: myLatlng,
+                                map: map,
+                                title: information,
+                             });
+
+                              google.maps.event.addListener(marker, 'mouseout', function() {
+                                infowindow.close();
+                              });
+
+                              google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.open(map,marker);
+                              });
+                        };
+                    })(geocoding)
+                );
                 deferreds.push(deferred);
             };
         });
