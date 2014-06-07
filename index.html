@@ -31,20 +31,19 @@
       </header>
 
       <section class="left-panel">
-        <input type="text" name="start" class="start" />
-        <input type="text" name="end" class="end" />
-        <button />
+        Start Address <input type="text" name="start" class="start" /><br/>
+        Destination <input type="text" name="end" class="end" /><br/>
+        <button id="findroute">Lets Go</button>
+        <button id="switchInputsButton">Switch Start/End</button>
       </section>
       <section class="right-panel">
         <div id="map-canvas"></div>
       </section>
 
-    </div>
-
     <script type="text/javascript" src="javascripts/data.js"></script>
-    <script type="text/javascript" src="javascripts/form.js"></script>
+    <script type="text/javascript" src="javascripts/search.js"></script>
     <script type="text/javascript" src="javascripts/map.js"></script>
-  
+    <script type="text/javascript" src="javascripts/search_directions_switch.js"></script>
   </body>
  
 </html>

@@ -7,20 +7,35 @@ NH.data = NH.data || {};
 
 	data.getHealthyMarkets = function(locationName){
 
+		var deferred = $.Deferred();
+
 		$.ajax({
 
 			type: "GET",
 			url: apiUrl + locationName,
 			dataType: "jsonp",
 			success: function(response){
-				alert("success: " + response);
-			},
-			error: function(){
-				alert("something went wrong!");
+				deferred.resolveWith(response);
 			}
+		});
+
+		return deferred.promise();
+	};
+
+	$(function(){
+
+		$(".search-NYC-test").click(function(){
+
+			var def = NH.data.getHealthyMarkets("NYC");
+
+			
+
+			def.done(function(response){
+				// get data out of response
+			});
 
 		});
 
-	};
+	});
 
 })(NH.data);
