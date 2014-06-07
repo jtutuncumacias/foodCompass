@@ -10,7 +10,6 @@ NH.data = NH.data || {};
     data.getYelpDataForLocation = function (locationName) {
         //var deferred = $.Deferred();
         return $.ajax({
-
             type: "GET",
             url: apiUrl + locationName,
             dataType: "jsonp"
