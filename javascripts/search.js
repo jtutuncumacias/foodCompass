@@ -17,8 +17,18 @@ var getDirections = function(){
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(result);
+      
+      var resultLeg = result.routes[0].legs[0];
+      var lat = (resultLeg.start_location.k + resultLeg.end_location.k) / 2.0
+      var lon = (resultLeg.start_location.A + resultLeg.end_location.A) / 2.0
+      
+      var def = NH.data.getHealthyMarkets(lat, lon);
+      
+      
     }
   });
+  
+  
   
 };
 

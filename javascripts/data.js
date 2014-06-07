@@ -3,25 +3,28 @@ NH.data = NH.data || {};
 
 (function (data) {
 
-    var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=healthmarkets&location=";
+    var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=healthmarkets";
 
     var healthyMarkets = [];
 
-    data.getYelpDataForLocation = function (locationName) {
+    data.getYelpDataForLocation = function (lat, lon) {
         //var deferred = $.Deferred();
+        var thisApiCall = apiUrl;
+        thisApiCall += "&lat=" + lat;
+        thisApiCall += "&lon=" + lon;
         return $.ajax({
 
             type: "GET",
-            url: apiUrl + locationName,
+            url: apiUrl,
             dataType: "jsonp"
         });
         //return deferred.promise();
     };
 
-    data.getHealthyMarkets = function (locationName) {
+    data.getHealthyMarkets = function (lat, lon) {
 	    var deferreds = [];
 
-        var content = data.getYelpDataForLocation(locationName);
+        var content = data.getYelpDataForLocation(lat, lon);
         content.done(function (response) {
                 // get data out of response
 
@@ -55,15 +58,5 @@ NH.data = NH.data || {};
             };
         });
     };
-
-    $(function () {
-
-        $("#findroute").click(function () {
-
-            var def = NH.data.getHealthyMarkets("NYC");
-
-        });
-
-    });
 
 })(NH.data);
