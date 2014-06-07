@@ -11,7 +11,7 @@ var directionsService = new google.maps.DirectionsService();
       mapTypeControl: false,
       panControl: false
     }
-    var googleMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    googleMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(googleMap);
 

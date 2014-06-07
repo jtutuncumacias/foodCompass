@@ -1,60 +1,69 @@
 var NH = NH || {};
 NH.data = NH.data || {};
 
-(function(data){
+(function (data) {
 
-	var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=healthmarkets&location=";
+    var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=healthmarkets&location=";
 
-	data.getYelpDataForLocation = function(locationName){
-		//var deferred = $.Deferred();
-		return $.ajax({
+    var healthyMarkets = [];
 
-			type: "GET",
-			url: apiUrl + locationName,
-			dataType: "jsonp"
-		});
-		//return deferred.promise();
-	};
+    data.getYelpDataForLocation = function (locationName) {
+        //var deferred = $.Deferred();
+        return $.ajax({
 
-	data.getHealthyMarkets = function(locationName){
+            type: "GET",
+            url: apiUrl + locationName,
+            dataType: "jsonp"
+        });
+        //return deferred.promise();
+    };
 
-		var data = getYelpDataForLocation(locationName);
+    data.getHealthyMarkets = function (locationName) {
+	    var deferreds = [];
 
-		var healthyMarkets = [];
+        var content = data.getYelpDataForLocation(locationName);
+        content.done(function (response) {
+                // get data out of response
 
-		data.done(function(response){
-			// get data out of response
+            var collectHealthyMarket = function(data) {
 
-			var blah = response;
+            };
 
-			for (var i = 0; i < response.businesses.length;){
-				healthyMarkets = response.businesses;
-			}
+            var urls = [];
 
+            for (var i = 0; i < response.businesses.length; i++) {
+                var geocoding = response.businesses[i];
+                var address = geocoding.address1 + " " + geocoding.address2 + " " + geocoding.city + " " + geocoding.state + " " + geocoding.country;
+                var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyA8maz9AiKnD81wnL1h4fGv03Bz85v4ysI";
 
-		});
+                var deferred = $.get(url);
 
-	};
+                deferred.then(function(data) {
+					geocoding.location = data.results[0].geometry.location;
+					healthyMarkets.push(geocoding);
 
-	$(function(){
+					 var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
+					 var map = googleMap;
 
-		$(".search-NYC-test").click(function(){
+					 var marker = new google.maps.Marker({
+					 	position: myLatlng,
+					 	map: map,
+					 	title: geocoding.address
+					 });
+                });
+                deferreds.push(deferred);
+            };
+        });
+    };
 
-			var def = NH.data.getHealthyMarkets("NYC");
+    $(function () {
 
+        $("#findroute").click(function () {
 
+            var def = NH.data.getHealthyMarkets("NYC");
 
-			
-			def.done(function(response){
-				// get data out of response
+        });
 
-				var blah = response;
-
-
-			});
-
-		});
-
-	});
+    });
 
 })(NH.data);
