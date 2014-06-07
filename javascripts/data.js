@@ -53,6 +53,7 @@ NH.data = NH.data || {};
 					 var marker = new google.maps.Marker({
 					 	position: myLatlng,
 					 	map: map,
+                        animation: google.maps.Animation.DROP,
 					 	title: geocoding.address
 					 });
                 });
