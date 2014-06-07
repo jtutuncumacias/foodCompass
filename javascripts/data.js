@@ -52,7 +52,7 @@ NH.data = NH.data || {};
                              var map = googleMap;
 
                              var information = "<p>" +
-                                "<b><a href='" + geocoding.url + "'>" + geocoding.name + "</a></b><br/>" +
+                                "<b><a href='" + geocoding.url + "'>" + geocoding.name + "<ga></b><br/>" +
                                 geocoding.address1 + " " + geocoding.state + ", " + geocoding.city +
                                 "<br/>" +
                                 "Telephone: " + geocoding.phone + "</p>";
