@@ -17,6 +17,7 @@ NH.data = NH.data || {};
         });
         //return deferred.promise();
     };
+    
 
     data.getHealthyMarkets = function (locationName) {
 	    var deferreds = [];
@@ -37,20 +38,24 @@ NH.data = NH.data || {};
                 var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyA8maz9AiKnD81wnL1h4fGv03Bz85v4ysI";
 
                 var deferred = $.get(url);
+                deferred.then(
+                    (function(geocoding) {
+                        return function (data) {
+                            geocoding.location = data.results[0].geometry.location;
+                            healthyMarkets.push(geocoding);
 
-                deferred.then(function(data) {
-					geocoding.location = data.results[0].geometry.location;
-					healthyMarkets.push(geocoding);
+                             var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
+                             var map = googleMap;
 
-					 var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
-					 var map = googleMap;
-
-					 var marker = new google.maps.Marker({
-					 	position: myLatlng,
-					 	map: map,
-					 	title: geocoding.address
-					 });
-                });
+                             var information = geocoding.name + ", " + geocoding.address1 + " " + geocoding.phone;
+                             var marker = new google.maps.Marker({
+                                position: myLatlng,
+                                map: map,
+                                title: information,
+                             });
+                        };
+                    })(geocoding)
+                );
                 deferreds.push(deferred);
             };
         });
