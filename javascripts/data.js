@@ -51,8 +51,11 @@ NH.data = NH.data || {};
                              var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
                              var map = googleMap;
 
-                             var information = geocoding.name + ", " + geocoding.address1 + " " + geocoding.phone;
-
+                             var information = "<p>" +
+                                "<b><a href='" + geocoding.url + "'>" + geocoding.name + "</a></b><br/>" +
+                                geocoding.address1 + " " + geocoding.state + ", " + geocoding.city +
+                                "<br/>" +
+                                "Telephone: " + geocoding.phone + "</p>";
 
                               var infowindow = new google.maps.InfoWindow({
                                   content: information
@@ -63,15 +66,16 @@ NH.data = NH.data || {};
                                 position: myLatlng,
                                 map: map,
                                 title: information,
+                                animation: google.maps.Animation.DROP
                              });
 
-                              google.maps.event.addListener(marker, 'mouseout', function() {
-                                infowindow.close();
-                              });
+                             //google.maps.event.addListener(marker, 'mouseout', function() {
+                             //  infowindow.close();
+                             //});
 
-                              google.maps.event.addListener(marker, 'click', function() {
-                                infowindow.open(map,marker);
-                              });
+                             google.maps.event.addListener(marker, 'click', function() {
+                               infowindow.open(map,marker);
+                             });
                         };
                     })(geocoding)
                 );
