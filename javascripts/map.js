@@ -3,9 +3,9 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
   function initialize() {
-    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+    var myLatlng = new google.maps.LatLng(40.663312, -73.951046);
     var mapOptions = {
-      zoom: 4,
+      zoom: 10,
       center: myLatlng,
       streetViewControl: false,
       mapTypeControl: false,
@@ -15,11 +15,7 @@ var directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(googleMap);
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: googleMap,
-      title: 'Hello World!'
-    });
+ 
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
