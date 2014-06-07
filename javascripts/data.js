@@ -24,12 +24,7 @@ NH.data = NH.data || {};
 
         var content = data.getYelpDataForLocation(locationName);
         content.done(function (response) {
-                // get data out of response
-
-            var collectHealthyMarket = function(data) {
-
-            };
-
+            // get data out of response
             var urls = [];
 
             for (var i = 0; i < response.businesses.length; i++) {
@@ -48,11 +43,26 @@ NH.data = NH.data || {};
                              var map = googleMap;
 
                              var information = geocoding.name + ", " + geocoding.address1 + " " + geocoding.phone;
+
+
+                              var infowindow = new google.maps.InfoWindow({
+                                  content: information
+                              });
+
+
                              var marker = new google.maps.Marker({
                                 position: myLatlng,
                                 map: map,
                                 title: information,
                              });
+
+                              google.maps.event.addListener(marker, 'mouseout', function() {
+                                infowindow.close();
+                              });
+
+                              google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.open(map,marker);
+                              });
                         };
                     })(geocoding)
                 );
