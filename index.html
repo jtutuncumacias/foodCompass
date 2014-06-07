@@ -9,21 +9,9 @@
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
     <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <style type="text/css">
-      .map{
-        margin-top: 200px;
-        margin-left: 100px;
-        width: 900px;
-      }
-    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhsHJlSCMPByughcrSBtcRJsWEDekef0I"></script>
+    
     <title>foodCompass by jtutuncumacias</title>
   </head>
 
@@ -48,17 +36,15 @@
         <button />
       </section>
       <section class="right-panel">
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?"width="900" height="400" frameborder="0" style="border:0"></iframe>
-        </div>
+        <div id="map-canvas"></div>
       </section>
-      
 
     </div>
 
     <script type="text/javascript" src="javascripts/data.js"></script>
     <script type="text/javascript" src="javascripts/form.js"></script>
     <script type="text/javascript" src="javascripts/map.js"></script>
+  
   </body>
  
 </html>
