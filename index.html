@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
     <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
     <script type="text/javascript" src="javascripts/modernizr.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
@@ -42,25 +43,21 @@
       </header>
 
       <section class="left-panel">
+       Start Address <input type="text" name="start" class="start" /><br/>
+        Destination <input type="text" name="end" class="end" /><br/>
+        <button id="findroute">Lets Go</button>
+        <button id="switchInputsButton">Switch Start/End</button>
         <input type="text" name="start" class="start" /><br/>
         <input type="text" name="end" class="end" /><br/>
-        <button>Let's Go</button>
-        <button id="switchInputsButton">Switch Start/End</button>
+        <button />
+        <button class="search-NYC-test" value="test search nyc"/>
       </section>
       <section class="right-panel">
         <div class="map">
           <iframe src="https://www.google.com/maps/embed?"width="900" height="400" frameborder="0" style="border:0"></iframe>
         </div>
       </section>
-	  </div>
-	  <section>
-		<div style="position:absolute;top:150px;left:0">
-		Start Adress<textarea id="startadress"></textarea><br>
-			Destination<textarea id="destination"></textarea>
-			<button id="routefinder">Lets go</button>
-		</div>
-	  </section>
-    
+      
 
     <script type="text/javascript" src="javascripts/data.js"></script>
     <script type="text/javascript" src="javascripts/search.js"></script>
