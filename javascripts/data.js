@@ -23,7 +23,7 @@ NH.data = NH.data || {};
     };
 
     data.getHealthyMarkets = function (t_lat, b_lat, t_lon, b_lon) {
-	    var deferreds = [];
+        var deferreds = [];
 
         var content = data.getYelpDataForLocation(t_lat, b_lat, t_lon, b_lon);
         content.done(function (response) {
@@ -43,19 +43,19 @@ NH.data = NH.data || {};
                 var deferred = $.get(url);
 
                 deferred.then(function(data) {
-					geocoding.location = data.results[0].geometry.location;
-					console.log("partytime: " + geocoding.location);
-					healthyMarkets.push(geocoding);
+                    geocoding.location = data.results[0].geometry.location;
+                    console.log("partytime: " + geocoding.location);
+                    healthyMarkets.push(geocoding);
 
-					 var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
-					 var map = googleMap;
+                     var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
+                     var map = googleMap;
 
-					 var marker = new google.maps.Marker({
-					 	position: myLatlng,
-					 	map: map,
+                     var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
                         animation: google.maps.Animation.DROP,
-					 	title: geocoding.address
-					 });
+                        title: geocoding.address
+                     });
                 });
                 deferreds.push(deferred);
             };
