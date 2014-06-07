@@ -12,10 +12,11 @@ NH.data = NH.data || {};
         var thisApiCall = apiUrl;
         thisApiCall += "&lat=" + lat;
         thisApiCall += "&lon=" + lon;
+
         return $.ajax({
 
             type: "GET",
-            url: apiUrl,
+            url: thisApiCall,
             dataType: "jsonp"
         });
         //return deferred.promise();
