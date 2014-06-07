@@ -3,8 +3,6 @@ var directionsService = new google.maps.DirectionsService();
 var getDirections = function(){
   var start = $(".start").val();
   var end = $(".end").val();
-<<<<<<< HEAD
-=======
   
   var request = {
     origin:start,
@@ -17,7 +15,6 @@ var getDirections = function(){
     }
   });
   
->>>>>>> FETCH_HEAD
 };
 
 $("#findroute").click(getDirections);
