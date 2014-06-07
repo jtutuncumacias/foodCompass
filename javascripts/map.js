@@ -1,3 +1,6 @@
+var googleMap;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
   function initialize() {
     var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
@@ -8,11 +11,13 @@
       mapTypeControl: false,
       panControl: false
     }
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var googleMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(googleMap);
 
     var marker = new google.maps.Marker({
       position: myLatlng,
-      map: map,
+      map: googleMap,
       title: 'Hello World!'
     });
   }
