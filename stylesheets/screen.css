@@ -566,3 +566,16 @@ dd p:first-child {
   font-size: .85em;
   font-style: italic;
 }
+
+.left-panel {
+  float: left; 
+  width: 30%;
+  margin-top: 100px;
+  padding-left: 8px;
+}
+
+.right-panel {
+  float: right;
+  width: 70%;
+  margin-top: 100px;
+}
