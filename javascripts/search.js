@@ -17,6 +17,8 @@ var getDirections = function(){
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(result);
+      alert("start location" + result.routes[0].legs[0].start_location);
+      alert("end location" + result.routes[0].legs[0].end_location);
     }
   });
   
