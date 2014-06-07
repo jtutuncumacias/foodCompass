@@ -7,32 +7,25 @@ NH.data = NH.data || {};
 
     var healthyMarkets = [];
 
-    data.getYelpDataForLocation = function (lat, lon) {
-        //var deferred = $.Deferred();
+    data.getYelpDataForLocation = function (t_lat, b_lat, t_lon, b_lon) {
         var thisApiCall = apiUrl;
-        thisApiCall += "&lat=" + lat;
-        thisApiCall += "&lon=" + lon;
-<<<<<<< HEAD
-        return $.ajax({
-
-            type: "GET",
-            url: apiUrl,
-=======
+        thisApiCall += "&tl_lat=" + t_lat;
+        thisApiCall += "&tl_long=" + t_lon;
+        thisApiCall += "&br_lat=" + b_lat;
+        thisApiCall += "&br_long=" + b_lon;
 
         return $.ajax({
-
             type: "GET",
             url: thisApiCall,
->>>>>>> FETCH_HEAD
             dataType: "jsonp"
         });
         //return deferred.promise();
     };
 
-    data.getHealthyMarkets = function (lat, lon) {
+    data.getHealthyMarkets = function (t_lat, b_lat, t_lon, b_lon) {
 	    var deferreds = [];
 
-        var content = data.getYelpDataForLocation(lat, lon);
+        var content = data.getYelpDataForLocation(t_lat, b_lat, t_lon, b_lon);
         content.done(function (response) {
                 // get data out of response
 
@@ -51,6 +44,7 @@ NH.data = NH.data || {};
 
                 deferred.then(function(data) {
 					geocoding.location = data.results[0].geometry.location;
+					console.log("partytime: " + geocoding.location);
 					healthyMarkets.push(geocoding);
 
 					 var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
