@@ -4,7 +4,7 @@ NH.data = NH.data || {};
 (function (data) {
 
     var category = active
-    var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=" + category + ";"
+    var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=" + category;
 
     var healthyMarkets = [];
 
