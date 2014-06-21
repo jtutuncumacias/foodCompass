@@ -1,6 +1,13 @@
 var NH = NH || {};
 NH.data = NH.data || {};
 
+ var markerlist = [];
+ function deletemarkerList(){
+    for(i = 0; i < markerlist.length; i++){
+        markerlist[i].setMap(null);
+    }
+ }
+
 (function (data) {
 
     var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=healthmarkets";
@@ -68,6 +75,7 @@ NH.data = NH.data || {};
                                 title: information,
                                 animation: google.maps.Animation.DROP
                              });
+                             markerlist.push(marker);
 
                              //google.maps.event.addListener(marker, 'mouseout', function() {
                              //  infowindow.close();

@@ -1,6 +1,9 @@
+
 var rendererOptions = {
   draggable: true
 };
+var start = $(".start").val();
+var end = $(".end").val();
 
 var googleMap;
 var directionsDisplay;
@@ -17,7 +20,8 @@ var directionsService = new google.maps.DirectionsService();
     }
     googleMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
-    
+
+
     directionsDisplay.setMap(googleMap);
 
  
