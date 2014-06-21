@@ -1,7 +1,12 @@
 var directionsService = new google.maps.DirectionsService();
+var geolocatedDirections = null;
+var CURRENT_LOCATION = "Current Location";
 
 var getDirections = function(){
   var start = $(".start").val();
+  if (geolocatedDirections && start == CURRENT_LOCATION) {
+    start = geolocatedDirections.coords.latitude +","+ geolocatedDirections.coords.longitude;
+  }
   var end = $(".end").val();
   
   
@@ -34,5 +39,18 @@ var getDirections = function(){
   
   
 };
+var updateStartLoc = function(position){
+  $(".start").val(CURRENT_LOCATION);
+  geolocatedDirections = position;
+};
+var findCurrentLoc = function(){
+ if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(updateStartLoc);
+    } else { 
+        alert("Geolocation is not supported by this browser.");
+    }
+};
+
 
 $("#findroute").click(getDirections);
+$('#geolocate-button').click(findCurrentLoc);

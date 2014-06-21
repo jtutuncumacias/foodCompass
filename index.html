@@ -16,6 +16,7 @@
       body{
          background-color: #8DC63F;
       }
+
       #map{
          border-width: 10px;
          border-color: #0000FF;
@@ -38,6 +39,7 @@
          text-decoration: none;
          vertical-align: middle;
       }
+
       button:hover {
          border-top-color: #00A651;
          background: #00A651;
@@ -57,9 +59,7 @@
     <title>foodCompass by jtutuncumacias</title>
   </head>
 
-  <body>
-
-    
+  <body>    
     <div class="shell">
 
       <header>
@@ -71,10 +71,12 @@
       </header>
 
       <section class="left-panel">
-        Start Address: <input type="text" name="start" class="start" /><br/>
-        Destination: <input type="text" name="end" class="end" /><br/>
-        Time: <input type="text" name="time" class="time"/><br/>
-        <button id="findroute">Let's Go</button>
+        Start Address <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <br/>
+        Destination <input type="text" name="end" class="end" />
+        <br/>
+        Time <input type="text" name="time" class="time"/><br/>
+        <button id="findroute">Lets Go</button>
         <button id="switchInputsButton">Switch Start/End</button>
       </section>
       <section class="right-panel">
