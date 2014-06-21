@@ -62,6 +62,8 @@
         height: 35px;
         width: 35px;
         cursor: pointer;
+        position: relative;
+        top: 6px;
       }
       #print{
         background-image: url("images/Very-Basic-Print-icon.png");
@@ -74,8 +76,13 @@
       .start, .end, .time
       {
         font-size: 25px;
-        width: 70%;
+        width: 60%;
       }
+      .searchLabel{
+        width: 600px;
+
+      }
+      
     </style>    
     <title>foodCompass by Nano Hacker Squad</title>
   </head>
@@ -89,11 +96,22 @@
       </header>
 
       <section class="left-panel">
-        Start Address: <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <span class="searchLabel">
+
+        Start Address: 
+        <span>
+          <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
         <br/>
-        Destination: <input type="text" name="end" class="end" />
+        <span class="searchLabel">
+        Destination: 
+        <span>
+          <input type="text" name="end" class="end" />
+
         <br/>
-        Time: <input type="text" name="time" class="time"/><br/>
+        <span class="searchLabel">
+        Time: 
+        <span>
+          <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Let's Go</button>
         <button id="switchInputsButton">Switch Start/End</button> <br>
          <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
