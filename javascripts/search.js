@@ -35,7 +35,7 @@ var getDirections = function(){
       var def = NH.data.getHealthyMarkets(t_lat, b_lat, t_lon, b_lon);
     }
     else{
-      alert"Something went wrong.  Please try again.";
+      alert ("Something went wrong.  Please try again.");
     }
   });
   
