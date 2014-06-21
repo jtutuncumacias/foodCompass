@@ -82,6 +82,16 @@
         width: 600px;
 
       }
+      .printLabel{
+        position:relative;
+        bottom:30px;
+        left:0px;
+        visibility:hidden;
+        color: #F43F08;
+      }
+      #printButtonContainer:hover .printLabel {
+        visibility: visible;
+      }
       
     </style>    
     <title>foodCompass by Nano Hacker Squad</title>
@@ -114,7 +124,10 @@
           <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Let's Go</button>
         <button id="switchInputsButton">Switch Start/End</button> <br>
-         <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
+        <div id="printButtonContainer">
+          <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
+           <p class="printLabel">Print</p>
+        </div>
         <div id="searchResults"></div>
       </section>
       <section class="right-panel">
