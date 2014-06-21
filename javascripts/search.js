@@ -43,6 +43,8 @@ var findCurrentLoc = function(){
         alert("Geolocation is not supported by this browser.");
     }
 };
+
+
 var updatedDirections = function(){
   deletemarkerList();
   var result = directionsDisplay.getDirections();
@@ -58,5 +60,11 @@ var updatedDirections = function(){
   var def = NH.data.getHealthyMarkets(t_lat, b_lat, t_lon, b_lon);
 }
 
+var email = function(){
+  var receiver = $(".email").val();
+  window.location = 'mailto:' + receiver + '?subject=Your+tip+on+mailto+links&body=Thanks+for+this+tip';
+}
+
 $("#findroute").click(getDirections);
 $('#geolocate-button').click(findCurrentLoc);
+$('#email').click(email)
