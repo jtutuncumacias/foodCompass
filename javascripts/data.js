@@ -1,11 +1,28 @@
 var NH = NH || {};
 NH.data = NH.data || {};
 
+ var markerlist = [];
+ function deletemarkerList(){
+    for(i = 0; i < markerlist.length; i++){
+        markerlist[i].setMap(null);
+    }
+ }
+
 (function (data) {
 
     var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg&category=healthmarkets";
 
     var healthyMarkets = [];
+
+    
+    var showHealthyMarketSearchResults = function(){
+
+      var blah = healthyMarkets;
+
+    };
+
+
+
 
     data.getYelpDataForLocation = function (t_lat, b_lat, t_lon, b_lon) {
         var thisApiCall = apiUrl;
@@ -24,6 +41,7 @@ NH.data = NH.data || {};
 
     data.getHealthyMarkets = function (t_lat, b_lat, t_lon, b_lon) {
         var deferreds = [];
+        healthyMarkets = [];
 
         var content = data.getYelpDataForLocation(t_lat, b_lat, t_lon, b_lon);
         content.done(function (response) {
@@ -68,6 +86,7 @@ NH.data = NH.data || {};
                                 title: information,
                                 animation: google.maps.Animation.DROP
                              });
+                             markerlist.push(marker);
 
                              //google.maps.event.addListener(marker, 'mouseout', function() {
                              //  infowindow.close();
@@ -81,7 +100,12 @@ NH.data = NH.data || {};
                 );
                 deferreds.push(deferred);
             };
+
+            $.when.apply($, deferreds).done(showHealthyMarketSearchResults);
+
         });
+        
     };
+
 
 })(NH.data);

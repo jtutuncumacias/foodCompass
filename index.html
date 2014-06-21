@@ -1,48 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <style>
-     button {
-   border-top: 1px solid #7c334f;
-   background: #7c334f;
-   background: -webkit-gradient(linear, left top, left bottom, from(#7c334f), to(#7c334f));
-   background: -webkit-linear-gradient(top, #7c334f, #7c334f);
-   background: -moz-linear-gradient(top, #7c334f, #7c334f);
-   background: -ms-linear-gradient(top, #7c334f, #7c334f);
-   background: -o-linear-gradient(top, #7c334f, #7c334f);
-   padding: 10px 20px;
-   -webkit-border-radius: 0px;
-   -moz-border-radius: 0px;
-   border-radius: 0px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #fffcff;
-   font-size: 18px;
-   font-family: Georgia, Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-button:hover {
-   border-top-color: #7c334f;
-   background: #7c334f;
-   color: #ffffff;
-   }
-button:active {
-   border-top-color: #7c334f;
-   background: #7c334f;
-   } 
-   #geolocate-button{
-    display: inline-block;
-    background-image: url("images/Geolocation-icon.png");
-    height: 35px;
-    width: 35px;
-    cursor: pointer;
-
-   }
-    </style>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640" />
@@ -54,14 +12,54 @@ button:active {
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhsHJlSCMPByughcrSBtcRJsWEDekef0I"></script>
     <style type="text/css">
+      header h1, header h2 {
+        background-color: #FFCB05;
+        color: #F43F08;
+      }
       body{
-        background-color: #FFFFCC;
+        background-color: #8DC63F;
       }
       #map{
         border-width: 10px;
         border-color: #0000FF;
       }
+      button {
+        border-top: 1px solid #FFCB05;
+        background: #F7941E;
+        padding: 10px 20px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        box-shadow: rgba(0,0,0,1) 0 1px 0;
+        text-shadow: rgba(0,0,0,.4) 0 1px 0;
+        color: #fffcff;
+        font-size: 18px;
+        font-family: Georgia, Serif;
+        text-decoration: none;
+        vertical-align: middle;
+      }
+      button:hover {
+        border-top-color: #00A651;
+        background: #00A651;
+        color: #ffffff;
+      }
+      button:active {
+        border-top-color: #F7941E;
+        background: #F7941E;
+      }
+      #geolocate-button{
+        display: inline-block;
+        background-image: url("images/Geolocation-icon.png");
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+      }
     </style>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
     <title>foodCompass by jtutuncumacias</title>
   </head>
 
@@ -69,18 +67,15 @@ button:active {
     
 
 
-    <a id="forkme_banner" href="https://github.com/jtutuncumacias/foodCompass">View on GitHub</a>
+    
     <div class="shell">
 
       <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
+        
             <h1>FoodCompass</h1>
             <h2>Get food on the go.</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+          
+          
       </header>
 
       <section class="left-panel">
@@ -88,6 +83,7 @@ button:active {
         <br/>
         Destination <input type="text" name="end" class="end" />
         <br/>
+        Time <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Lets Go</button>
         <button id="switchInputsButton">Switch Start/End</button>
       </section>
@@ -99,7 +95,7 @@ button:active {
     <script type="text/javascript" src="javascripts/search.js"></script>
     <script type="text/javascript" src="javascripts/map.js"></script>
     <script type="text/javascript" src="javascripts/search_directions_switch.js"></script>
-
+    <script type="text/javascript" src="javascripts/Time.js"></script>
   </body>
  
 </html>
