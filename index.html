@@ -73,6 +73,7 @@
         box-shadow: none;
         border: 4px solid #FFCB05;
       }
+
       .start, .end, .time
       {
         font-size: 25px;
@@ -88,10 +89,34 @@
         bottom:30px;
         left:0px;
         visibility:hidden;
-        color: #F43F08;
+        color: red;
       }
       #printButtonContainer:hover .printLabel {
         visibility: visible;
+      }
+      #findroute{
+        border: 4px solid #FFCB05;
+        box-shadow: none;
+        cursor: pointer;
+
+      }
+
+      #findRouteBike{
+        border: 4px solid #FFCB05;
+        box-shadow: none;
+        cursor: pointer;
+      }
+
+      #switchInputsButton{
+        border: 4px solid #FFCB05;
+        box-shadow: none;
+        cursor: pointer;
+      }
+
+      #printButtonContainer{
+        height: 48px;
+        width: 48px;
+
       }
       
 
@@ -124,8 +149,9 @@
         Time: 
         </span>
           <input type="text" name="time" class="time"/><br/>
-        <button id="findroute">Let's Go</button>
-        <button id="switchInputsButton">Switch Start/End</button> <br>
+        <img src="images/car-icon.png" width="60" height="60" id="findroute"/>
+        <img src="images/bike-icon-hi.png" width="100" height="60" id="findRouteBike"/>
+        <img src="images/switchicon.png" width="60" height="60" id="switchInputsButton"/> <br>
         <div id="printButtonContainer">
           <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
            <p class="printLabel">Print</p>

@@ -2,7 +2,7 @@ var directionsService = new google.maps.DirectionsService();
 var geolocatedDirections = null;
 var CURRENT_LOCATION = "Current Location";
 
-var getDirections = function(){
+var getDirections = function(biking){
   var start = $(".start").val();
   if (geolocatedDirections && start == CURRENT_LOCATION) {
     start = geolocatedDirections.coords.latitude +","+ geolocatedDirections.coords.longitude;
@@ -17,7 +17,9 @@ var getDirections = function(){
     destination:end,
     waypoints: waypoints,
 
-    travelMode: google.maps.TravelMode.DRIVING
+    travelMode: biking
+      ? google.maps.TravelMode.BICYCLING      
+      : google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
@@ -35,7 +37,7 @@ var getDirections = function(){
       var def = NH.data.getHealthyMarkets(t_lat, b_lat, t_lon, b_lon);
     }
     else{
-      alert"Something went wrong.  Please try again.";
+      alert("Something went wrong.  Please try again.");
     }
   });
   
@@ -54,6 +56,8 @@ var findCurrentLoc = function(){
     }
 };
 
-
+$('#findRouteBike').click(function(){
+  getDirections(true);
+});
 $("#findroute").click(getDirections);
 $('#geolocate-button').click(findCurrentLoc);
