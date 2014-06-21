@@ -53,10 +53,21 @@ var findCurrentLoc = function(){
         alert("Geolocation is not supported by this browser.");
     }
 };
+
 var email = function(){
   var receiver = $(".email").val();
-window.location = 'mailto:' + receiver + '?subject=Your+tip+on+mailto+links&body=Thanks+for+this+tip'
+  if (receiver) {
+    var subject = encodeURIComponent("Your tip on mailto links");
+    var body = encodeURIComponent("Thanks for this tip");
+    var link = 'mailto:' + receiver + '?subject=' + subject + '&body=' + body;
 
+    console.log(link);
+    //alert(link);
+    window.location.href = link;    
+  }
+  else {
+    alert("Need valid email address")
+  }
 }
 
 $("#findroute").click(getDirections);
