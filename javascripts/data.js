@@ -17,7 +17,6 @@ NH.data = NH.data || {};
     
     var showHealthyMarketSearchResults = function(){
 
-      var blah = healthyMarkets;
 
       var results = $("#searchResults");
 
@@ -25,7 +24,7 @@ NH.data = NH.data || {};
 
       for(var i = 0; i < healthyMarkets.length; i++){
 
-        newHtml = newHtml + "<div>" + healthyMarkets[i]["name"] + "</div>";        
+        newHtml = newHtml + '<a href = "' + healthyMarkets[i]["url"] + '"> ' + healthyMarkets[i]["name"] + "</a>";        
 
       }
 
