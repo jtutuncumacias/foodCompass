@@ -9,6 +9,9 @@ var googleMap;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
+
+
+
   function initialize() {
     var myLatlng = new google.maps.LatLng(40.663312, -73.951046);
     var mapOptions = {
@@ -24,7 +27,11 @@ var directionsService = new google.maps.DirectionsService();
 
     directionsDisplay.setMap(googleMap);
 
+
+    google.maps.event.addListener(directionsDisplay, 'directions_changed', updatedDirections);
+
  
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
+//THIS IS THE ONE QUESTION I WANT ANSWERED: HOW DO YOU GET A LOCATION OF A MARKER [MOST PREFERABLY ORIGIN AND DESTINATION]?
