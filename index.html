@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <style>
      button {
    border-top: 1px solid #7c334f;
@@ -33,6 +34,14 @@ button:active {
    border-top-color: #7c334f;
    background: #7c334f;
    } 
+   #geolocate-button{
+    display: inline-block;
+    background-image: url("images/Geolocation-icon.png");
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+
+   }
     </style>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -57,6 +66,8 @@ button:active {
   </head>
 
   <body>
+    
+
 
     <a id="forkme_banner" href="https://github.com/jtutuncumacias/foodCompass">View on GitHub</a>
     <div class="shell">
@@ -73,8 +84,10 @@ button:active {
       </header>
 
       <section class="left-panel">
-        Start Address <input type="text" name="start" class="start" /><br/>
-        Destination <input type="text" name="end" class="end" /><br/>
+        Start Address <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <br/>
+        Destination <input type="text" name="end" class="end" />
+        <br/>
         <button id="findroute">Lets Go</button>
         <button id="switchInputsButton">Switch Start/End</button>
       </section>
@@ -86,6 +99,7 @@ button:active {
     <script type="text/javascript" src="javascripts/search.js"></script>
     <script type="text/javascript" src="javascripts/map.js"></script>
     <script type="text/javascript" src="javascripts/search_directions_switch.js"></script>
+
   </body>
  
 </html>
