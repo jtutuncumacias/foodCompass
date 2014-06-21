@@ -63,18 +63,18 @@
         width: 35px;
         cursor: pointer;
       }
+<<<<<<< HEAD
       #print{
+        display: inline-block;
         background-image: url("images/Very-Basic-Print-icon.png");
         height: 40px;
-        width: 40px;
-        cursor: pointer;
-        box-shadow: none;
-        border: none;
-      }
+        width: 50px;
+=======
       .start, .end, .time
       {
         font-size: 25px;
         width: 70%;
+>>>>>>> 9779f8272e530b1fce032230ba034d5f55a2016f
       }
     </style>    
     <title>foodCompass by Nano Hacker Squad</title>
@@ -96,7 +96,7 @@
         Time: <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Let's Go</button>
         <button id="switchInputsButton">Switch Start/End</button> <br>
-         <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
+         <button id="print">Print</button>
         <div id="searchResults"></div>
       </section>
       <section class="right-panel">
