@@ -64,8 +64,8 @@ var updatedDirections = function(){
 var email = function(){
   var receiver = $(".email").val();
   if (receiver) {
-    var subject = encodeURIComponent("Your tip on mailto links");
-    var body = encodeURIComponent("Thanks for this tip");
+    var subject = encodeURIComponent("Your foodCompass Page");
+    var body = encodeURIComponent("github.io/foodCompass/index.html");
     var link = 'mailto:' + receiver + '?subject=' + subject + '&body=' + body;
 
     console.log(link);
