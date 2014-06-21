@@ -53,7 +53,12 @@ var findCurrentLoc = function(){
         alert("Geolocation is not supported by this browser.");
     }
 };
+var email = function(){
+  var receiver = $(".email").val();
+window.location = 'mailto:' + receiver + '?subject=Your+tip+on+mailto+links&body=Thanks+for+this+tip'
 
+}
 
 $("#findroute").click(getDirections);
 $('#geolocate-button').click(findCurrentLoc);
+$('#email').click(email)
