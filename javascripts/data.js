@@ -14,6 +14,16 @@ NH.data = NH.data || {};
 
     var healthyMarkets = [];
 
+    
+    var showHealthyMarketSearchResults = function(){
+
+      var blah = healthyMarkets;
+
+    };
+
+
+
+
     data.getYelpDataForLocation = function (t_lat, b_lat, t_lon, b_lon) {
         var thisApiCall = apiUrl;
         thisApiCall += "&tl_lat=" + t_lat;
@@ -31,6 +41,7 @@ NH.data = NH.data || {};
 
     data.getHealthyMarkets = function (t_lat, b_lat, t_lon, b_lon) {
         var deferreds = [];
+        healthyMarkets = [];
 
         var content = data.getYelpDataForLocation(t_lat, b_lat, t_lon, b_lon);
         content.done(function (response) {
@@ -89,7 +100,12 @@ NH.data = NH.data || {};
                 );
                 deferreds.push(deferred);
             };
+
+            $.when.apply($, deferreds).done(showHealthyMarketSearchResults);
+
         });
+        
     };
+
 
 })(NH.data);
