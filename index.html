@@ -79,7 +79,8 @@
         width: 60%;
       }
       .searchLabel{
-        width: 600px;
+        display: inline-block;
+        width: 100px;
 
       }
       .printLabel{
@@ -93,8 +94,9 @@
         visibility: visible;
       }
       
+
     </style>    
-    <title>foodCompass by Nano Hacker Squad</title>
+    <title>foodCompass by Julian(jtutuncumacias)</title>
   </head>
 
   <body>    
@@ -109,18 +111,18 @@
         <span class="searchLabel">
 
         Start Address: 
-        <span>
+        </span>
           <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
         <br/>
         <span class="searchLabel">
         Destination: 
-        <span>
+        </span>
           <input type="text" name="end" class="end" />
 
         <br/>
         <span class="searchLabel">
         Time: 
-        <span>
+        </span>
           <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Let's Go</button>
         <button id="switchInputsButton">Switch Start/End</button> <br>

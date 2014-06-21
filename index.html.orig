@@ -62,22 +62,44 @@
         height: 35px;
         width: 35px;
         cursor: pointer;
+        position: relative;
+        top: 6px;
       }
-<<<<<<< HEAD
       #print{
-        display: inline-block;
         background-image: url("images/Very-Basic-Print-icon.png");
         height: 40px;
-        width: 50px;
-=======
+        width: 40px;
+        cursor: pointer;
+        box-shadow: none;
+        border: 4px solid #FFCB05;
+      }
       .start, .end, .time
       {
         font-size: 25px;
-        width: 70%;
->>>>>>> 9779f8272e530b1fce032230ba034d5f55a2016f
+        width: 60%;
       }
+      .searchLabel{
+        display: inline-block;
+        width: 100px;
+
+      }
+<<<<<<< HEAD
+      .printLabel{
+        position:relative;
+        bottom:30px;
+        left:0px;
+        visibility:hidden;
+        color: #F43F08;
+      }
+      #printButtonContainer:hover .printLabel {
+        visibility: visible;
+      }
+      
+=======
+
+>>>>>>> 1c4129747c4dd4aaf04fc33489d6bf1899acd1fc
     </style>    
-    <title>foodCompass by Nano Hacker Squad</title>
+    <title>foodCompass by Julian(jtutuncumacias)</title>
   </head>
 
   <body>    
@@ -89,14 +111,28 @@
       </header>
 
       <section class="left-panel">
-        Start Address: <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <span class="searchLabel">
+
+        Start Address: 
+        </span>
+          <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
         <br/>
-        Destination: <input type="text" name="end" class="end" />
+        <span class="searchLabel">
+        Destination: 
+        </span>
+          <input type="text" name="end" class="end" />
+
         <br/>
-        Time: <input type="text" name="time" class="time"/><br/>
+        <span class="searchLabel">
+        Time: 
+        </span>
+          <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Let's Go</button>
         <button id="switchInputsButton">Switch Start/End</button> <br>
-         <button id="print">Print</button>
+        <div id="printButtonContainer">
+          <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
+           <p class="printLabel">Print</p>
+        </div>
         <div id="searchResults"></div>
       </section>
       <section class="right-panel">
