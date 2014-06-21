@@ -46,7 +46,7 @@ var updateStartLoc = function(position){
 var findCurrentLoc = function(){
  if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(updateStartLoc);
-    } else {
+    } else { 
         alert("Geolocation is not supported by this browser.");
     }
 };

@@ -12,58 +12,58 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhsHJlSCMPByughcrSBtcRJsWEDekef0I"></script>
     <style type="text/css">
+    
       body{
-        background-color: #8DC63F;
+         background-color: #8DC63F;
       }
+
       #map{
-        border-width: 10px;
-        border-color: #0000FF;
+         border-width: 10px;
+         border-color: #0000FF;
       }
-    </style>
-    <style>
-     button {
-   border-top: 1px solid #FFCB05;
-   background: #F7941E;
-   padding: 10px 20px;
-   -webkit-border-radius: 0px;
-   -moz-border-radius: 0px;
-   border-radius: 0px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #fffcff;
-   font-size: 18px;
-   font-family: Georgia, Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-button:hover {
-   border-top-color: #00A651;
-   background: #00A651;
-   color: #ffffff;
-   }
-button:active {
-   border-top-color: #F7941E;
-   background: #F7941E;
-   } 
+    
+      button {
+         border-top: 1px solid #FFCB05;
+         background: #F7941E;
+         padding: 10px 20px;
+         -webkit-border-radius: 0px;
+         -moz-border-radius: 0px;
+         border-radius: 0px;
+         -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+         -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+         box-shadow: rgba(0,0,0,1) 0 1px 0;
+         text-shadow: rgba(0,0,0,.4) 0 1px 0;
+         color: #fffcff;
+         font-size: 18px;
+         font-family: Georgia, Serif;
+         text-decoration: none;
+         vertical-align: middle;
+      }
 
-header h1 {
-background-color: #FFCB05;
-color: #F43F08;
+      button:hover {
+         border-top-color: #00A651;
+         background: #00A651;
+         color: #ffffff;
+      }
+      button:active {
+         border-top-color: #F7941E;
+         background: #F7941E;
+      } 
 
-}
-header h2 {
-background-color: #FFCB05;
-color: #F43F08;
-}
+      header {
+        border-radius: 10px;
+      }
+
+      header h1, header h2 {
+          background-color: #FFCB05;
+          color: #F43F08;
+
+      }
     </style>    
     <title>foodCompass by jtutuncumacias</title>
   </head>
 
-  <body>
-
-    
+  <body>    
     <div class="shell">
 
       <header>
@@ -75,11 +75,14 @@ color: #F43F08;
       </header>
 
       <section class="left-panel">
-        Start Address <input type="text" name="start" class="start" /><br/>
-        Destination <input type="text" name="end" class="end" /><br/>
+        Start Address <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <br/>
+        Destination <input type="text" name="end" class="end" />
+        <br/>
         Time <input type="text" name="time" class="time"/><br/>
         <button id="findroute">Lets Go</button>
         <button id="switchInputsButton">Switch Start/End</button>
+        <div id="searchResults"></div>
       </section>
       <section class="right-panel">
         <div id="map-canvas"></div>

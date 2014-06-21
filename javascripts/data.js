@@ -19,6 +19,18 @@ NH.data = NH.data || {};
 
       var blah = healthyMarkets;
 
+      var results = $("#searchResults");
+
+      var newHtml = "";
+
+      for(var i = 0; i < healthyMarkets.length; i++){
+
+        newHtml = newHtml + "<div>" + healthyMarkets[i]["name"] + "</div>";        
+
+      }
+
+
+      results.html(newHtml);
     };
 
 
