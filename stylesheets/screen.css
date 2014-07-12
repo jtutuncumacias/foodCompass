@@ -569,10 +569,11 @@ dd p:first-child {
 }
 
 .right-panel {
-  float: right;
-  width: 70%;
-  margin-top: 0px;
-  position: relative;
+  left: 30%;
+  right: 0;
+  top: 12px;
+  bottom: 0;
+  position: absolute;
 }
 
 #map-canvas {
