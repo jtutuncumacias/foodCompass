@@ -69,15 +69,12 @@
         position: relative;
         top: 6px;
       }
-      #print{
-        background-image: url("images/Very-Basic-Print-icon.png");
-        height: 40px;
-        width: 40px;
-        cursor: pointer;
-        box-shadow: none;
-        border: 4px solid #FFCB05;
-      }
 
+      .printButton{
+        border:0;
+        box-shadow: 0 0 0 0;
+      }
+    
       .start, .end, .time
       {
         font-size: 25px;
@@ -95,32 +92,21 @@
         visibility:hidden;
         color: red;
       }
-      #printButtonContainer:hover .printLabel {
-        visibility: visible;
+      .switchandprint{
+        float: right;
+        margin: 2px;
       }
-      #findroute{
-        border: 4px solid #FFCB05;
-        box-shadow: none;
+      .switch {
+        margin-right: 50px;
+      }
+    .bikeandcar{
+      position: relative; 
+      left: 140px; 
+    }
+      img {
+        border: 0px;
+        box-shadow: 0 0 0 0;
         cursor: pointer;
-
-      }
-
-      #findRouteBike{
-        border: 4px solid #FFCB05;
-        box-shadow: none;
-        cursor: pointer;
-      }
-
-      #switchInputsButton{
-        border: 4px solid #FFCB05;
-        box-shadow: none;
-        cursor: pointer;
-      }
-
-      #printButtonContainer{
-        height: 48px;
-        width: 48px;
-
       }
       
       #email{
@@ -145,8 +131,12 @@
 
       <section class="left-panel">
         <img class="logo" src="images/FC_logo.png" width="120">
+        
+        <img class="bikeandcar" src="images/icon-car.gif" width="44" height="44" id="findroute"/>
+        <img class="bikeandcar" src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
         <br>
         <span class="searchLabel">
+
 
 
         Start Address: 
@@ -170,12 +160,10 @@
         <br/>
 // -->        
           <br/>
-        <img src="images/car-icon.png" width="60" height="60" id="findroute"/>
-        <img src="images/bike-icon-hi.png" width="100" height="60" id="findRouteBike"/>
-        <img src="images/switchicon.png" width="60" height="60" id="switchInputsButton"/> <br>
+        
+        <img class="switchandprint switch" src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
         <div id="printButtonContainer">
-          <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
-           <p class="printLabel">Print</p>
+          <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
         </div>
 <!--
         <button id="email">E-Mail To My iPhone</button>
