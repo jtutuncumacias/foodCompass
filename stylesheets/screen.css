@@ -564,14 +564,14 @@ dd p:first-child {
   box-sizing: border-box;
   float: left; 
   width: 30%;
-  margin-top: 100px;
+  margin-top: 0px;
   padding-left: 8px;
 }
 
 .right-panel {
   float: right;
   width: 70%;
-  margin-top: 100px;
+  margin-top: 0px;
 }
 
 #map-canvas {
