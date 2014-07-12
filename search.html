@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhsHJlSCMPByughcrSBtcRJsWEDekef0I"></script>
+    <style type="text/css">
+    
+      body{
+         background-color: #8DC63F;
+         
+      }
+
+      #map{
+         border-width: 10px;
+         border-color: #0000FF;
+      }
+    
+      button {
+         border-top: 1px solid #FFCB05; 
+         background: #F7941E; 
+         padding: 10px 20px;
+         -webkit-border-radius: 0px;
+         -moz-border-radius: 0px;
+         border-radius: 0px;
+         -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+         -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+         box-shadow: rgba(0,0,0,1) 0 1px 0;
+         text-shadow: rgba(0,0,0,.4) 0 1px 0;
+         color: #fffcff;
+         font-size: 18px;
+         font-family: Georgia, Serif;
+         text-decoration: none;
+         vertical-align: middle;
+      }
+
+      button:hover {
+         border-top-color: #00A651;
+         background: #00A651;
+         color: #ffffff;
+      }
+      button:active {
+         border-top-color: #F7941E;
+         background: #F7941E;
+      } 
+      header {
+        height: 12px;
+        width: 100%;
+        background-color: #FFCB05;
+        
+      }
+      
+      #geolocate-button{
+        display: inline-block;
+        background-image: url("images/Geolocation-icon.png");
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+        position: relative;
+        top: 6px;
+      }
+      #print{
+        background-image: url("images/Very-Basic-Print-icon.png");
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        box-shadow: none;
+        border: 4px solid #FFCB05;
+      }
+
+      .start, .end, .time
+      {
+        font-size: 25px;
+        width: 60%;
+      }
+      .searchLabel{
+        display: inline-block;
+        width: 100px;
+
+      }
+      .printLabel{
+        position:relative;
+        bottom:30px;
+        left:0px;
+        visibility:hidden;
+        color: red;
+      }
+      #printButtonContainer:hover .printLabel {
+        visibility: visible;
+      }
+      #findroute{
+        border: 4px solid #FFCB05;
+        box-shadow: none;
+        cursor: pointer;
+
+      }
+
+      #findRouteBike{
+        border: 4px solid #FFCB05;
+        box-shadow: none;
+        cursor: pointer;
+      }
+
+      #switchInputsButton{
+        border: 4px solid #FFCB05;
+        box-shadow: none;
+        cursor: pointer;
+      }
+
+      #printButtonContainer{
+        height: 48px;
+        width: 48px;
+
+      }
+      
+      #email{
+
+      }
+
+    </style>    
+    <title>foodCompass</title>
+  </head>
+
+  <body>    
+    <div class="shell">
+
+      <header>
+        
+      </header>
+
+      <section class="left-panel">
+        <span class="searchLabel">
+
+        Start Address: 
+        </span>
+          <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <br/>
+        <span class="searchLabel">
+        Destination: 
+        </span>
+          <input type="text" name="end" class="end" />
+<!--
+        <br/>
+        <span class="searchLabel">
+        Time: 
+        </span><input type="text" name="time" class="time"/><br/>
+        <br/>
+        <span class="searchLabel">
+        Email:
+        </span><input type="text" name="email" class="email"/>
+        <br/>
+// -->        
+          <br/>
+        <img src="images/car-icon.png" width="60" height="60" id="findroute"/>
+        <img src="images/bike-icon-hi.png" width="100" height="60" id="findRouteBike"/>
+        <img src="images/switchicon.png" width="60" height="60" id="switchInputsButton"/> <br>
+        <div id="printButtonContainer">
+          <img src="images/Very-Basic-Print-icon.png" width = "40" height = "40" id="print" />
+           <p class="printLabel">Print</p>
+        </div>
+<!--
+        <button id="email">E-Mail To My iPhone</button>
+// -->
+        <div id="searchResults"></div>
+      </section>
+      <section class="right-panel">
+        <div id="map-canvas"></div>
+      </section>
+    <script type="text/javascript" src="javascripts/data.js"></script>
+    <script type="text/javascript" src="javascripts/search.js"></script>
+    <script type="text/javascript" src="javascripts/map.js"></script>
+    <script type="text/javascript" src="javascripts/search_directions_switch.js"></script>
+    <script type="text/javascript" src="javascripts/Time.js"></script>
+    <script type="text/javascript" src="javascripts/print.js"></script>
+  </body>
+ 
+</html>
