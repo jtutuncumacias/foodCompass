@@ -4,11 +4,6 @@
 <html>
 <head>
 
-<center>
-	<img class="logo" src="images/FC_logo.png" width="198"></center>
-	<center>
-	<a href="search.html"><img class="LetsGo" src="images/FC_button_letsfindoutmore.png" width="178" height="29"></a></center>
-
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<style>
 	body {
@@ -21,23 +16,41 @@
 		color: #F43F08 ;
 	}
 
-	
 	center {font-size: 60px;}
-	.logo {
-		
-	}
+  .container {
+    position: absolute;
+    height: 300px;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    display: inline-block;
+  }
+  a.search {
+    background-color: #fff200;
+    color: #8dc63f;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 10px;
+  }
 
-
+  a.search span {
+    padding-right: 10px;
+  }
 	</style>
 
-	<script> 
-
-
-	</script>
 	<title>foodCompass</title>
 </head>
 
 <body>
-
+<center>
+  <div class='container'>
+  	<img class="logo" src="images/FC_logo.png" width="198">
+    <br/>
+  	<a class='search' href="search.html">
+      Let's Find Out More <span style='color:#f7941e'>></span>
+    </a>
+  </div>
+</center>
 </body>
 </html>
