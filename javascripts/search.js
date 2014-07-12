@@ -19,7 +19,8 @@ var getDirections = function(biking){
 
     travelMode: biking
       ? google.maps.TravelMode.BICYCLING      
-      : google.maps.TravelMode.DRIVING
+      : google.maps.TravelMode.DRIVING 
+
   };
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
@@ -81,6 +82,8 @@ $('#findRouteBike').click(function(){
   getDirections(true);
 });
 
-$("#findroute").click(getDirections);
+$("#findroute").click(function(){
+  getDirections(false);
+});
 $('#geolocate-button').click(findCurrentLoc);
 $('#email').click(email)
