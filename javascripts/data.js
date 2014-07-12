@@ -94,7 +94,7 @@ NH.data = NH.data || {};
                              var marker = new google.maps.Marker({
                                 position: myLatlng,
                                 map: map,
-                                title: information,
+                                //title: information,
                                 animation: google.maps.Animation.DROP
                              });
                              markerlist.push(marker);
