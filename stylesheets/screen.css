@@ -135,13 +135,6 @@ a#forkme_banner:hover {
 
 /* header */
 
-header {
-  position: relative;
-  z-index: 2;
-  margin: 0 auto;
-  width: 90%;
-  top: 38px;
-}
 
 header span.ribbon-inner {
   position: relative;
