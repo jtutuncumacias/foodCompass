@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" 
+      type="image/ico" 
+      href="images/favicon.ico">
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640" />
@@ -123,6 +126,11 @@
       #email{
 
       }
+      .logo{
+      border: 0;
+      margin-top: 6px;
+      box-shadow: 0 0 0 0;
+      }
 
     </style>    
     <title>foodCompass</title>
@@ -130,16 +138,20 @@
 
   <body>    
     <div class="shell">
-
+ 
       <header>
         
       </header>
 
       <section class="left-panel">
+        <img class="logo" src="images/FC_logo.png" width="120">
+        <br>
         <span class="searchLabel">
+
 
         Start Address: 
         </span>
+
           <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
         <br/>
         <span class="searchLabel">
