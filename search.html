@@ -4,6 +4,9 @@
     <link rel="icon" 
       type="image/ico" 
       href="images/favicon.ico">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640" />
@@ -15,6 +18,10 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhsHJlSCMPByughcrSBtcRJsWEDekef0I"></script>
     <style type="text/css">
+
+      body, .start, .end, .time {
+        font-family: 'Open Sans Condensed', 'Arial', sans-serif;
+      }
     
       .dropdown-submenu {
         position: relative;
@@ -131,7 +138,7 @@
       .searchLabel{
         display: inline-block;
         width: 100px;
-
+        font-size: 25px;
       }
       .printLabel{
         position:relative;
@@ -171,6 +178,15 @@
 
       .container .row {
         display: none;
+      }
+
+      #searchResults a {
+        border: 2px solid yellow;
+        border-radius: 5px;
+        margin: 4px;
+        padding: 0 10px;
+        line-height: 2.3em;
+        display: inline-block;
       }
 
       @media (max-width: 1024px) {
