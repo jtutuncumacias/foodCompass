@@ -126,7 +126,7 @@
       .start, .end, .time
       {
         font-size: 25px;
-        width: 50%;
+        width: 60%;
       }
       .searchLabel{
         display: inline-block;
@@ -158,7 +158,12 @@
       }
 
       .icon-group {
-        display: block;
+        padding: ;
+        padding-left: 70%;
+      }
+
+      .container .row {
+        display: none;
       }
 
     </style>    
@@ -176,16 +181,14 @@
         <img class="logo" src="images/FC_logo.png" width="120">
 
         <div class="icon-group">
-          <img class="bikeandcar" src="images/icon-car.gif" width="44" height="44" id="findroute"/>
-          <img class="bikeandcar" src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
+          <img src="images/icon-car.gif" width="44" height="44" id="findroute"/>
+          <img src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
         </div>
         
         <span class="searchLabel">
-
-        Start Address: 
+        Depart: <div id="geolocate-button"></div>
         </span>
-
-          <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
+        <input type="text" name="start" class="start"  /> 
         <br/>
         <span class="searchLabel">
           Destination: 
@@ -193,9 +196,7 @@
         <input type="text" name="end" class="end" />
         <div class="icon-group">
           <img class="switchandprint switch" src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
-          <div id="printButtonContainer">
-            <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
-          </div>
+          <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
         </div>
 
           <div class="container">
