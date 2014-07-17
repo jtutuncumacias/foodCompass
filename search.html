@@ -166,16 +166,14 @@
       }
 
       .icon-group-container {
-        position: relative;
         height: 52px;
-        width: 140px;
+        width: 100%;
         margin-bottom: 10px;
       }
 
       .icon-group {
-        position: absolute;
-        top: 0;
-        right: 10px;
+        width: 140px;
+        padding-left: 65%;
       }
 
       .container .row {
@@ -222,18 +220,17 @@
         border: 5px solid #FFCB05;
       }
 
-      @media (max-width: 1024px) {
+      @media screen and (min-width: 200px) and (max-width: 1024px) {
         .start, .end, .time
         {
           width: 90%;
         }
 
         .icon-group {
-          position: absolute;
-          top: 10px;
-          left: 10px;
+          padding-left: 0;
         }
       }
+
 
     </style>    
     <title>foodCompass</title>
