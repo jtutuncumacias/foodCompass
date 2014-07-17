@@ -126,7 +126,7 @@
       .start, .end, .time
       {
         font-size: 25px;
-        width: 60%;
+        width: 65%;
       }
       .searchLabel{
         display: inline-block;
@@ -157,13 +157,33 @@
       width: 50%;
       }
 
+      .icon-group-container {
+        position: relative;
+        height: 60px;
+        width: 100%;
+      }
+
       .icon-group {
-        padding: ;
-        padding-left: 70%;
+        position: absolute;
+        top: 10px;
+        right: 10px;
       }
 
       .container .row {
         display: none;
+      }
+
+      @media (max-width: 1024px) {
+        .start, .end, .time
+        {
+          width: 90%;
+        }
+
+        .icon-group {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
       }
 
     </style>    
@@ -180,9 +200,11 @@
       <section class="left-panel">
         <img class="logo" src="images/FC_logo.png" width="120">
 
-        <div class="icon-group">
-          <img src="images/icon-car.gif" width="44" height="44" id="findroute"/>
-          <img src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
+        <div class="icon-group-container">
+          <div class="icon-group">
+            <img src="images/icon-car.gif" width="44" height="44" id="findroute"/>
+            <img src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
+          </div>
         </div>
         
         <span class="searchLabel">
@@ -194,10 +216,12 @@
           Destination: 
         </span>
         <input type="text" name="end" class="end" />
-        <div class="icon-group">
-          <img class="switchandprint switch" src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
-          <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
-        </div>
+        <div class="icon-group-container">
+          <div class="icon-group">
+            <img class="switchandprint switch" src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
+            <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
+          </div>
+      </div>
 
           <div class="container">
   <div class="row">
