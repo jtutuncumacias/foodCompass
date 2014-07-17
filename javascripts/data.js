@@ -12,6 +12,8 @@ NH.data = NH.data || {};
 
     var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg";
 
+    var yelpCategories = ["healthmarkets"];
+
     var healthyMarkets = [];
 
     
@@ -33,10 +35,9 @@ NH.data = NH.data || {};
     };
 
 
-
-
     data.getYelpDataForLocation = function (t_lat, b_lat, t_lon, b_lon) {
-        var thisApiCall = apiUrl;
+        var categoryFilter = '&category=' + yelpCategories.join(',');
+        var thisApiCall = apiUrl + categoryFilter;
         thisApiCall += "&tl_lat=" + t_lat;
         thisApiCall += "&tl_long=" + t_lon;
         thisApiCall += "&br_lat=" + b_lat;
