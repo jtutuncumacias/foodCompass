@@ -140,17 +140,7 @@
         visibility:hidden;
         color: red;
       }
-      .switchandprint{
-        float: right;
-        margin: 2px;
-      }
-      .switch {
-        margin-right: 50px;
-      }
-    .bikeandcar{
-      position: relative; 
-      left: 140px; 
-    }
+
       img {
         border: 0px;
         box-shadow: 0 0 0 0;
@@ -164,6 +154,11 @@
       border: 0;
       margin-top: 6px;
       box-shadow: 0 0 0 0;
+      width: 50%;
+      }
+
+      .icon-group {
+        display: block;
       }
 
     </style>    
@@ -179,13 +174,13 @@
 
       <section class="left-panel">
         <img class="logo" src="images/FC_logo.png" width="120">
+
+        <div class="icon-group">
+          <img class="bikeandcar" src="images/icon-car.gif" width="44" height="44" id="findroute"/>
+          <img class="bikeandcar" src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
+        </div>
         
-        <img class="bikeandcar" src="images/icon-car.gif" width="44" height="44" id="findroute"/>
-        <img class="bikeandcar" src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
-        <br>
         <span class="searchLabel">
-
-
 
         Start Address: 
         </span>
@@ -193,9 +188,16 @@
           <input type="text" name="start" class="start"  /> <div id="geolocate-button"></div>
         <br/>
         <span class="searchLabel">
-        Destination: 
+          Destination: 
         </span>
-          <input type="text" name="end" class="end" />
+        <input type="text" name="end" class="end" />
+        <div class="icon-group">
+          <img class="switchandprint switch" src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
+          <div id="printButtonContainer">
+            <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
+          </div>
+        </div>
+
           <div class="container">
   <div class="row">
         <h2>Multi level dropdown menu in Bootstrap 3</h2>
@@ -239,12 +241,7 @@
         </span><input type="text" name="email" class="email"/>
         <br/>
 // -->        
-          <br/>
-        
-        <img class="switchandprint switch" src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
-        <div id="printButtonContainer">
-          <img class="switchandprint"src="images/icon-printer.gif" width = "44" height = "44" id="print" />
-        </div>
+
 <!--
         <button id="email">E-Mail To My iPhone</button>
 // -->
