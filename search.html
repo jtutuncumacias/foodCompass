@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=640" />
 
     <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
     <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -50,15 +49,32 @@
         top: 6px;
       }
 
-      .printButton{
-        border:0;
-        box-shadow: 0 0 0 0;
+      .icon-group-container {
+        position: relative;
+        height: 52px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .icon-group {
+        width: 120px;
       }
     
       .start, .end, .time {
         font-size: 25px;
-        width: 65%;
         width: 90%;
+      }
+
+      @media screen and (min-width: 900px) {
+        .start, .end, .time {
+          width: 65%;
+        }
+
+        .icon-group {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
       }
 
       .searchLabel {
@@ -83,20 +99,6 @@
         margin-top: 6px;
         box-shadow: 0 0 0 0;
         width: 40%;
-      }
-
-      .icon-group-container {
-        height: 52px;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-
-      .icon-group {
-      /*  width: 140px;
-        padding-left: 65%;
-        */
-        padding-right: 20px;
-        float: right;
       }
 
       #searchResults {
