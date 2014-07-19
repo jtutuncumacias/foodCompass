@@ -21,7 +21,7 @@ header {
 
 #geolocate-button {
   display: inline-block;
-  background-image: url("images/Geolocation-icon.png");
+  background-image: url("../images/Geolocation-icon.png");
   height: 35px;
   width: 35px;
   cursor: pointer;
@@ -42,7 +42,7 @@ header {
 
 .start, .end, .time {
   font-size: 25px;
-  width: 90%;
+  width: 75%;
 }
 
 .styled-select {
