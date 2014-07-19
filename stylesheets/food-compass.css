@@ -58,7 +58,7 @@ header {
 
 .styled-select select {
    background: transparent;
-   width: 278px;
+   width: 340px;
    padding: 5px;
    font-size: 25px;
    line-height: 1;
@@ -68,8 +68,16 @@ header {
    -webkit-appearance: none;
    font-family: 'Open Sans Condensed', 'Arial', sans-serif;
 }
-
-
+@-moz-document url-prefix(){
+  .styled-select select {
+   background: transparent;
+   width: 306px;
+   padding: 0px;
+   height: 40px;
+   -webkit-appearance: none;
+   font-family: 'Open Sans Condensed', 'Arial', sans-serif;
+ }
+}
 @media screen and (min-width: 900px) {
   .start, .end, .time {
     width: 65%;
@@ -142,4 +150,3 @@ input:focus {
 .icon-group img:hover {
   border: 5px solid #FFCB05;
 }
-
