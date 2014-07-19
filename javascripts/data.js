@@ -96,10 +96,11 @@ NH.data = NH.data || {};
                                   content: information
                               });
 
-
+                              var iconBase = 'images/';
                              var marker = new google.maps.Marker({
                                 position: myLatlng,
                                 map: map,
+                                icon: iconBase + 'FCpin.png',
                                 //title: information,
                                 animation: google.maps.Animation.DROP
                              });
@@ -108,6 +109,7 @@ NH.data = NH.data || {};
                              //google.maps.event.addListener(marker, 'mouseout', function() {
                              //  infowindow.close();
                              //});
+
 
                              google.maps.event.addListener(marker, 'click', function() {
                                infowindow.open(map,marker);
