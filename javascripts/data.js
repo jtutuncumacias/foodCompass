@@ -16,12 +16,7 @@ NH.data = NH.data || {};
 
     var healthyMarkets = [];
 
-    data.setCategory = function(category){
-      yelpCategories = [];
-      yelpCategories.push(category);      
-
-    }
-
+    
     var showHealthyMarketSearchResults = function(){
 
 
