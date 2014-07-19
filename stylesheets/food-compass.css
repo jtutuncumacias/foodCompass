@@ -40,7 +40,7 @@ header {
   width: 120px;
 }
 
-.start, .end, .time {
+.start, .end, .time, #category_filter {
   font-size: 25px;
   width: 75%;
 }
@@ -71,7 +71,7 @@ header {
 
 
 @media screen and (min-width: 900px) {
-  .start, .end, .time {
+  .start, .end, .time, #category_filter {
     width: 65%;
   }
 
