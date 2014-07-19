@@ -59,6 +59,8 @@ var updatedDirections = function(){
   var t_lon = Math.max(resultLeg.start_location.B, resultLeg.end_location.B);
   var b_lon = Math.min(resultLeg.start_location.B, resultLeg.end_location.B);
   
+  NH.data.setCategory($('#category_filter').val());
+
   var def = NH.data.getHealthyMarkets(t_lat, b_lat, t_lon, b_lon);
 }
 
