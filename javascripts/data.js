@@ -12,7 +12,7 @@ NH.data = NH.data || {};
 
     var apiUrl = "http://api.yelp.com/business_review_search?ywsid=DcNSRt7CdNB57H2UJ3kpHg";
 
-    var yelpCategories = ["healthmarkets"];
+    var yelpCategories = [];
 
     var healthyMarkets = [];
 
