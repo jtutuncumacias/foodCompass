@@ -119,12 +119,7 @@ NH.data = NH.data || {};
                 );
                 deferreds.push(deferred);
             };
-
             $.when.apply($, deferreds).done(showHealthyMarketSearchResults);
-
-        });
-        
+        });  
     };
-
-
 })(NH.data);
