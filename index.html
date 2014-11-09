@@ -1,61 +1,267 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-
 <html>
-<head>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
-<link rel="icon" 
-      type="image/ico" 
-      href="images/favicon.ico">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
 
-	<style>
-	body {
-		background-color: #8DC63F;
-		font-family: 'Open Sans Condensed', 'Arial', sans-serif;	
-		color: #F43F08 ;
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhsHJlSCMPByughcrSBtcRJsWEDekef0I"></script>
 
-	}
-	a {
-		color: #F43F08 ;
-	}
+    <link rel="stylesheet" href="stylesheets/food-compass.css" media="screen"/>
+    <style type="text/css">
 
-	center {font-size: 60px;}
-  .container {
-    position: absolute;
-    height: 300px;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    display: inline-block;
-  }
-  a.search {
-    background-color: #fff200;
-    color: #8dc63f;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 24px;
-    padding: 10px;
-  }
+    </style>    
 
-  a.search span {
-    padding-right: 10px;
-  }
-	</style>
+    <title>food2go</title>
+  </head>
 
-	<title>foodCompass</title>
-</head>
+  <body>    
+    <div class="shell">
+ 
+      <header>
+        
+      </header>
 
-<body>
-<center>
-  <div class='container'>
-  	<img class="logo" src="images/FC_logo.png" width="198">
-    <br/>
-  	<a class='search' href="search.html">
-      Let's Find Out More <span style='color:#f7941e'>></span>
-    </a>
-  </div>
-</center>
-</body>
+      <section class="left-panel">
+      <h1>food2go</h1>
+        <div class="icon-group-container">
+          <div class="icon-group">
+            <img src="images/icon-car.gif" width="44" height="44" id="findroute"/>
+            <img src="images/icon-bike.gif" width="44" height="44" id="findRouteBike"/>
+          </div>
+        </div>
+        
+        <span class="searchLabel">
+          Depart: <div id="geolocate-button"></div>
+        </span>
+        <input type="text" name="start" class="start"  /> 
+        <br/>
+        <span class="searchLabel">
+          Destination: 
+        </span>
+        <input type="text" name="end" class="end" />
+        <span class="searchLabel">
+          Category:
+        </span>
+        <div class="styled-select">
+          <select  id="category_filter">
+            <optgroup label="Food">
+              <option value="food">All</option>
+              <option value="bagels">Bagels</option>
+              <option value="bakeries">Bakeries</option>  
+              <option value="beer_and_wine">Beer, Wine & Spirits</option>
+              <option value="breweries">Breweries</option>
+              <option value="bubbletea">Bubble Tea</option>
+              <option value="butcher">Butcher</option>
+              <option value="csa">CSA</option>
+              <option value="coffee">Coffee & Tea</option>
+              <option value="convenience">Convenience Stores</option>
+              <option value="cupcakes">Cupcakes</option>
+              <option value="desserts">Desserts</option>
+              <option value="distilleries">Distilleries</option>
+              <option value="diyfood">Do-It-Yourself Food</option>
+              <option value="donuts">Donuts</option>
+              <option value="farmersmarket">Farmers Market</option>
+              <option value="fooddeliveryservices">Food Delivery Services</option>
+              <option value="foodtrucks">Food Trucks</option>
+              <option value="gelato">Gelato</option>
+              <option value="grocery">Grocery</option>
+              <option value="healthmarkets">Health Markets</option>
+              <option value="icecream">Ice Cream & Frozen Yogurt</option>
+              <option value="internetcafe">Internet Cafes</option>
+              <option value="juicebars">Juice Bars & Smoothies</option>
+              <option value="pretzels">Pretzels</option>
+              <option value="shavedice">Shaved Ice</option>
+              <option value="gourmet">Specialty Food</option>
+              <option value="candy">Candy Stores</option>
+              <option value="cheese">Cheese Shops</option>
+              <option value="chocolate">Chocolatiers & Shops</option>
+              <option value="ethnicmarkets">Ethnic Food</option>
+              <option value="markets">Fruits & Veggies</option>
+              <option value="herbsandspices">Herbs & Spices</option>
+              <option value="meats">Meat Shops</option>
+              <option value="seafoodmarkets">Seafood Markets</option>
+              <option value="streetvendors">Street Vendors</option>
+              <option value="tea">Tea Rooms</option>
+              <option value="wineries">Wineries</option>
+            </optgroup>
+            <optgroup label="Bars">
+              <option value="bars">All</option>
+              <option value="champagne_bars">Champagne Bars</option>
+              <option value="cocktailbars">Cocktail Bars</option>
+              <option value="divebars">Dive Bars</option>
+              <option value="gaybars">Gay Bars</option>
+              <option value="hookah_bars">Hookah Bars</option>
+              <option value="irish_pubs">Irish Pub</option>
+              <option value="lounges">Lounges</option>
+              <option value="pubs">Pubs</option>
+              <option value="sportsbars">Sports Bars</option>
+              <option value="wine_bars">Wine Bars</option>
+            </optgroup>
+            <optgroup label="Restaurants">
+              <option value="restaurants">All</option>
+              <option value="afghani">Afghan</option>
+              <option value="african">African</option>
+              <option value="senegalese">Senegalese</option>
+              <option value="southafrican">South African</option>
+              <option value="newamerican">New American</option>
+              <option value="tradamerican">Traditional American</option>
+              <option value="arabian">Arabian</option>
+              <option value="argentine">Argentine</option>
+              <option value="armenian">Armenian</option>
+              <option value="asianfusion">Asian Fusion</option>
+              <option value="australian">Australian</option>
+              <option value="austrian">Austrian</option>
+              <option value="bangladeshi">Bangladeshi</option>
+              <option value="bbq">Barbeque</option>
+              <option value="basque">Basque</option>
+              <option value="belgian">Belgian</option>
+              <option value="brasseries">Brasseries</option>
+              <option value="brazilian">Brazilian</option>
+              <option value="breakfast_brunch">Breakfast & Brunch</option>
+              <option value="british">British</option>
+              <option value="buffets">Buffets</option>
+              <option value="burgers">Burgers</option>
+              <option value="burmese">Burmese</option>
+              <option value="cafes">Cafes</option>
+              <option value="cafeteria">Cafeteria</option>
+              <option value="cajun">Cajun/Creole</option>
+              <option value="cambodian">Cambodian</option>
+              <option value="caribbean">Caribbean</option>
+              <option value="dominican">Dominican</option>
+              <option value="haitian">Haitian</option>
+              <option value="puertorican">Puerto Rican</option>
+              <option value="trinidadian">Trinidadian</option>
+              <option value="catalan">Catalan</option>
+              <option value="cheesesteaks">Cheesesteaks</option>
+              <option value="chicken_wings">Chicken Wings</option>
+              <option value="chinese">Chinese</option>
+              <option value="cantonese">Cantonese</option>
+              <option value="dimsum">Dim Sum</option>
+              <option value="shanghainese">Shanghainese</option>
+              <option value="szechuan">Szechuan</option>
+              <option value="comfortfood">Comfort Food</option>
+              <option value="creperies">Creperies</option>
+              <option value="cuban">Cuban</option>
+              <option value="czech">Czech</option>
+              <option value="delis">Delis</option>
+              <option value="diners">Diners</option>
+              <option value="ethiopian">Ethiopian</option>
+              <option value="hotdogs">Fast Food</option>
+              <option value="filipino">Filipino</option>
+              <option value="fishnchips">Fish & Chips</option>
+              <option value="fondue">Fondue</option>
+              <option value="food_court">Food Court</option>
+              <option value="foodstands">Food Stands</option>
+              <option value="french">French</option>
+              <option value="gastropubs">Gastropubs</option>
+              <option value="german">German</option>
+              <option value="gluten_free">Gluten-Free</option>
+              <option value="greek">Greek</option>
+              <option value="halal">Halal</option>
+              <option value="hawaiian">Hawaiian</option>
+              <option value="himalayan">Himalayan/Nepalese</option>
+              <option value="hotdog">Hot Dogs</option>
+              <option value="hotpot">Hot Pot</option>
+              <option value="hungarian">Hungarian</option>
+              <option value="iberian">Iberian</option>
+              <option value="indpak">Indian</option>
+              <option value="indonesian">Indonesian</option>
+              <option value="irish">Irish</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="ramen">Ramen</option>
+              <option value="korean">Korean</option>
+              <option value="kosher">Kosher</option>
+              <option value="laotian">Laotian</option>
+              <option value="latin">Latin American</option>
+              <option value="colombian">Colombian</option>
+              <option value="salvadoran">Salvadoran</option>
+              <option value="venezuelan">Venezuelan</option>
+              <option value="raw_food">Live/Raw Food</option>
+              <option value="malaysian">Malaysian</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="falafel">Falafel</option>
+              <option value="mexican">Mexican</option>
+              <option value="mideastern">Middle Eastern</option>
+              <option value="egyptian">Egyptian</option>
+              <option value="lebanese">Lebanese</option>
+              <option value="modern_european">Modern European</option>
+              <option value="mongolian">Mongolian</option>
+              <option value="moroccan">Moroccan</option>
+              <option value="pakistani">Pakistani</option>
+              <option value="persian">Persian/Iranian</option>
+              <option value="peruvian">Peruvian</option>
+              <option value="pizza">Pizza</option>
+              <option value="polish">Polish</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="russian">Russian</option>
+              <option value="salad">Salad</option>
+              <option value="sandwiches">Sandwiches</option>
+              <option value="scandinavian">Scandinavian</option>
+              <option value="scottish">Scottish</option>
+              <option value="seafood">Seafood</option>
+              <option value="singaporean">Singaporean</option>
+              <option value="slovakian">Slovakian</option>
+              <option value="soulfood">Soul Food</option>
+              <option value="soup">Soup</option>
+              <option value="southern">Southern</option>
+              <option value="spanish">Spanish</option>
+              <option value="steak">Steakhouses</option>
+              <option value="sushi">Sushi Bars</option>
+              <option value="taiwanese">Taiwanese</option>
+              <option value="tapas">Tapas</option>
+              <option value="tapasmallplates">Tapas/Small Plates</option>
+              <option value="tex-mex">Tex-Mex</option>
+              <option value="thai">Thai</option>
+              <option value="turkish">Turkish</option>
+              <option value="ukrainian">Ukrainian</option>
+              <option value="uzbek">Uzbek</option>
+              <option value="vegan">Vegan</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vietnamese">Vietnamese</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="icon-group-container">
+            <div class="icon-group">
+              <img src="images/icon-swap.gif" width="44" height="44" id="switchInputsButton"/> 
+              <img src="images/icon-printer.gif" width = "44" height = "44" id="print" />
+            </div>
+          </div>
+        
+<!--
+        <br/>
+        <span class="searchLabel">
+        Time: 
+        </span><input type="text" name="time" class="time"/><br/>
+        <br/>
+        <span class="searchLabel">
+        Email:
+        </span><input type="text" name="email" class="email"/>
+        <br/>
+// -->        
+
+<!--
+        <button id="email">E-Mail To My iPhone</button>
+// -->
+        <div id="searchResults"></div>
+      </section>
+      <section class="right-panel">
+        <div id="map-canvas"></div>
+      </section>
+    <script type="text/javascript" src="javascripts/data.js"></script>
+    <script type="text/javascript" src="javascripts/search.js"></script>
+    <script type="text/javascript" src="javascripts/map.js"></script>
+    <script type="text/javascript" src="javascripts/search_directions_switch.js"></script>
+    <script type="text/javascript" src="javascripts/Time.js"></script>
+    <script type="text/javascript" src="javascripts/print.js"></script>
+  </body>
+ 
 </html>

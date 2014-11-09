@@ -14,7 +14,7 @@ NH.data = NH.data || {};
 
     var yelpCategories = [];
 
-    var healthyMarkets = [];
+    var Restaurants = [];
 
     data.setCategory = function(category){
       yelpCategories = [];
@@ -22,16 +22,16 @@ NH.data = NH.data || {};
 
     }
     
-    var showHealthyMarketSearchResults = function(){
+    var showRestaurantSearchResults = function(){
 
 
       var results = $("#searchResults");
 
       var newHtml = "";
 
-      for(var i = 0; i < healthyMarkets.length; i++){
+      for(var i = 0; i < Restaurants.length; i++){
 
-        newHtml = newHtml + '<a href = "' + healthyMarkets[i]["url"] + '"> ' + healthyMarkets[i]["name"] + "</a>";        
+        newHtml = newHtml + '<a href = "' + Restaurants[i]["url"] + '"> ' + Restaurants[i]["name"] + "</a>";        
 
       }
       results.html(newHtml);
@@ -53,17 +53,15 @@ NH.data = NH.data || {};
         //return deferred.promise();
     };
 
-    data.getHealthyMarkets = function (t_lat, b_lat, t_lon, b_lon) {
+    data.getRestaurants = function (t_lat, b_lat, t_lon, b_lon) {
         var deferreds = [];
-        healthyMarkets = [];
+        Restaurants = [];
 
         var content = data.getYelpDataForLocation(t_lat, b_lat, t_lon, b_lon);
         content.done(function (response) {
                 // get data out of response
 
-            var collectHealthyMarket = function(data) {
-
-            };
+            var collectHealthyMarket = function(data) {};
 
             var urls = [];
 
@@ -78,7 +76,7 @@ NH.data = NH.data || {};
                     (function(geocoding) {
                         return function (data) {
                             geocoding.location = data.results[0].geometry.location;
-                            healthyMarkets.push(geocoding);
+                            Restaurants.push(geocoding);
 
                              var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
                              var map = googleMap;
@@ -87,7 +85,9 @@ NH.data = NH.data || {};
                                 "<b><a href='" + geocoding.url + "'>" + geocoding.name + "</a></b><br/>" +
                                 geocoding.address1 + " " + geocoding.state + ", " + geocoding.city +
                                 "<br/>" +
-                                "Telephone: " + geocoding.phone + "</p>";
+                                "Telephone: " + geocoding.phone + "<br/>" + 
+                                "<b><a href=''>Redirect Route</a></b>"
+                                "</p>";
 
                               var infowindow = new google.maps.InfoWindow({
                                   content: information
@@ -107,7 +107,6 @@ NH.data = NH.data || {};
                              //  infowindow.close();
                              //});
 
-
                              google.maps.event.addListener(marker, 'click', function() {
                                infowindow.open(map,marker);
                              });
@@ -116,7 +115,7 @@ NH.data = NH.data || {};
                 );
                 deferreds.push(deferred);
             };
-            $.when.apply($, deferreds).done(showHealthyMarketSearchResults);
+            $.when.apply($, deferreds).done(showRestaurantSearchResults);
         });  
     };
 })(NH.data);

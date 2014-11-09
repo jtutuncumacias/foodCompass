@@ -58,7 +58,7 @@ var updatedDirections = function(){
   
   NH.data.setCategory($('#category_filter').val());
 
-  var def = NH.data.getHealthyMarkets(t_lat, b_lat, t_lon, b_lon);
+  var def = NH.data.getRestaurants(t_lat, b_lat, t_lon, b_lon);
 }
 
 var email = function(){
