@@ -61,7 +61,7 @@ NH.data = NH.data || {};
         content.done(function (response) {
                 // get data out of response
 
-            var collectHealthyMarket = function(data) {};
+            var collectRestaurants = function(data) {};
 
             var urls = [];
 
@@ -79,6 +79,7 @@ NH.data = NH.data || {};
                             Restaurants.push(geocoding);
 
                              var myLatlng = new google.maps.LatLng(geocoding.location.lat, geocoding.location.lng);
+                             console.log(myLatlng);
                              var map = googleMap;
 
                              var information = "<p>" +
