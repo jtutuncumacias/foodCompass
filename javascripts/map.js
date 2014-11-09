@@ -1,4 +1,3 @@
-
 var rendererOptions = {
   draggable: true
 };

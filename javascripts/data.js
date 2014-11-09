@@ -34,11 +34,8 @@ NH.data = NH.data || {};
         newHtml = newHtml + '<a href = "' + healthyMarkets[i]["url"] + '"> ' + healthyMarkets[i]["name"] + "</a>";        
 
       }
-
-
       results.html(newHtml);
     };
-
 
     data.getYelpDataForLocation = function (t_lat, b_lat, t_lon, b_lon) {
         var categoryFilter = '&category=' + yelpCategories.join(',');

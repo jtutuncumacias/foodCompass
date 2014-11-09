@@ -31,9 +31,6 @@ var getDirections = function(biking){
       alert("Something went wrong.  Please try again.");
     }
   });
-  
-  
-  
 };
 var updateStartLoc = function(position){
   $(".start").val(CURRENT_LOCATION);
