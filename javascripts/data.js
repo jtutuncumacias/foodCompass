@@ -86,7 +86,6 @@ NH.data = NH.data || {};
                                 geocoding.address1 + " " + geocoding.state + ", " + geocoding.city +
                                 "<br/>" +
                                 "Telephone: " + geocoding.phone + "<br/>" + 
-                                "<b><a href=''>Redirect Route</a></b>"
                                 "</p>";
 
                               var infowindow = new google.maps.InfoWindow({
@@ -97,7 +96,6 @@ NH.data = NH.data || {};
                              var marker = new google.maps.Marker({
                                 position: myLatlng,
                                 map: map,
-                                icon: iconBase + 'FCpin.png',
                                 //title: information,
                                 animation: google.maps.Animation.DROP
                              });
